@@ -1,0 +1,10 @@
+node_modules
+.next
+.git
+.openai
+.env*
+!.env.example
+dist
+charts
+*.log
+.DS_Store

@@ -1,0 +1,10 @@
+Check the rollout:
+  kubectl rollout status deployment/{{ include "velvet-reels.fullname" . }} -n {{ .Release.Namespace }}
+
+Access locally:
+  kubectl port-forward service/{{ include "velvet-reels.fullname" . }} 8080:{{ .Values.service.port }} -n {{ .Release.Namespace }}
+  Open http://localhost:8080
+{{ if .Values.ingress.enabled }}
+Ingress is enabled. Configure DNS to point at your ingress controller and provision
+any TLS secrets listed in your values file.
+{{ end }}

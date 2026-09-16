@@ -1,0 +1,7 @@
+apiVersion: v2
+name: velvet-reels
+description: Velvet Reels Next.js application
+type: application
+version: 0.1.0
+appVersion: "1.0.0"
+kubeVersion: ">=1.23.0-0"

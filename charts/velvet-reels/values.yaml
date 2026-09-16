@@ -1,0 +1,47 @@
+replicaCount: 1
+
+image:
+  # Build and push the Dockerfile, then set your registry/repository here.
+  repository: velvet-reels
+  pullPolicy: IfNotPresent
+  # Defaults to Chart.appVersion when empty. Use a unique tag per release.
+  tag: ""
+imagePullSecrets: []
+
+nameOverride: ""
+fullnameOverride: ""
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  enabled: false
+  className: ""
+  annotations: {}
+  hosts:
+    - host: velvet-reels.example.com
+      paths:
+        - path: /
+          pathType: Prefix
+  tls: []
+  # - secretName: velvet-reels-tls
+  #   hosts:
+  #     - velvet-reels.example.com
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 128Mi
+  limits:
+    cpu: "1"
+    memory: 512Mi
+
+# Kubernetes EnvVar entries; use valueFrom.secretKeyRef for secrets.
+# PORT and HOSTNAME are managed by the chart and should not be overridden.
+env: []
+envFrom: []
+podAnnotations: {}
+nodeSelector: {}
+tolerations: []
+affinity: {}
